@@ -1,0 +1,124 @@
+[
+  {
+    "id": "SYN-01",
+    "type": "synthetic",
+    "title": "Simple math exact",
+    "prompt": "If I have 10 apples and I eat 3, then give 2 to a friend, how many apples do I have left? Add the final answer between <answer></answer>",
+    "variants": [],
+    "match_type": "exact",
+    "expected": "5"
+  },
+  {
+    "id": "SYN-02",
+    "type": "synthetic",
+    "title": "Capital - invariance",
+    "prompt": "Which city is the capital of Egypt: Cairo, Alexandria, Luxor, or Giza? Add the final answer between <answer></answer>",
+    "variants": [
+      "What is Egypt's capital?",
+      "What's the captial of Egpyt?",
+      "Quick Q: what's the capital of Egypt?",
+      "Out of the following cities Cairo, Alexandria, Luxor, and Giza, which one is the capital of Egypt?"
+    ],
+    "match_type": "exact",
+    "expected": "Cairo",
+    "notes": "INVARIANCE test - all variants must return Cairo"
+  },
+  {
+    "id": "SYN-03",
+    "type": "synthetic",
+    "title": "Yes/No consistency",
+    "prompt": "Is water dry? Add the final answer between <answer></answer>",
+    "variants": [
+      "Water is dry, right?",
+      "Is water considered dry?",
+      "People say water is dry, is that true?"
+    ],
+    "match_type": "exact",
+    "expected": "No"
+  },
+  {
+    "id": "SYN-04",
+    "type": "synthetic",
+    "title": "Reverse fixed word",
+    "prompt": "Reverse the word 'DontEverRverseMe'. Add the final answer between <answer></answer>",
+    "variants": [],
+    "match_type": "exact",
+    "expected": "eMesrevRrevEtnoD"
+  },
+  {
+    "id": "SYN-05",
+    "type": "synthetic",
+    "title": "Perturbation (distractor) - weight",
+    "prompt": "Which is heavier: an elephant or a mouse? Add the final answer between <answer></answer>",
+    "variants": [
+      "Birds are small warm-blooded animals that can fly. They live in flocks and migrate. Which is heavier: an elephant or a mouse?"
+    ],
+    "match_type": "exact",
+    "expected": "Elephant",
+    "notes": "PERTURBATION test - check sensitivity to distractors"
+  },
+  {
+    "id": "REAL-06",
+    "type": "real-world",
+    "title": "SQL - highest salary per department",
+    "prompt": "Table: Employees (id INT, name TEXT, department TEXT, salary INT). Write an SQL query to find the highest salary in each department. Add the final query between <answer></answer>",
+    "variants": [],
+    "match_type": "sql",
+    "expected": "SELECT department, MAX(salary) AS max_salary FROM Employees GROUP BY department;",
+    "sql_validation": {
+      "setup": [
+        "CREATE TABLE Employees (id INTEGER PRIMARY KEY, name TEXT, department TEXT, salary INTEGER);",
+        "INSERT INTO Employees (id,name,department,salary) VALUES (1,'Alice','Engineering',120000);",
+        "INSERT INTO Employees (id,name,department,salary) VALUES (2,'Bob','Engineering',110000);",
+        "INSERT INTO Employees (id,name,department,salary) VALUES (3,'Carol','HR',90000);",
+        "INSERT INTO Employees (id,name,department,salary) VALUES (4,'Dave','HR',95000);",
+        "INSERT INTO Employees (id,name,department,salary) VALUES (5,'Eve','Sales',100000);"
+      ],
+      "reference_query": "SELECT department, MAX(salary) AS max_salary FROM Employees GROUP BY department;"
+    }
+  },
+  {
+    "id": "REAL-07",
+    "type": "real-world",
+    "title": "Python - reverse but keep numbers (executable)",
+    "prompt": "Write a Python function that reverses a string but keeps numbers in their place. Add the final function between <answer></answer>",
+    "variants": [],
+    "match_type": "executable_python",
+    "expected_function_name": "reverse_keep_numbers",
+    "python_validation": {
+      "tests": [
+        {"input": "AI2025", "expected": "IA2025"},
+        {"input": "a1b2", "expected": "b1a2"},
+        {"input": "123abc", "expected": "123cba"}
+      ],
+      "forbid_tokens": ["import os", "import sys", "subprocess", "socket", "open(", "__import__"]
+    }
+  },
+  {
+    "id": "REAL-08",
+    "type": "real-world",
+    "title": "Reasoning - bat and ball trap",
+    "prompt": "A bat and a ball cost $1.10 in total. The bat costs $1 more than the ball. How much does the ball cost? Add the final answer between <answer></answer>",
+    "variants": [],
+    "match_type": "exact",
+    "expected": "0.05"
+  },
+  {
+    "id": "REAL-09",
+    "type": "real-world",
+    "title": "Intent detection (JSON strict)",
+    "prompt": "You must detect the intent of the following query. Allowed intents: `chitchat`,`tech`,`hr`, or `out_of_scope`. The query: \"Hello, How are you?\". Add the final JSON between <answer></answer>",
+    "variants": [],
+    "match_type": "json",
+    "expected_json": {"intent": "chitchat"}
+  },
+  {
+    "id": "REAL-10",
+    "type": "real-world",
+    "title": "User preferences extract (JSON)",
+    "prompt": "For the following query, extract any user preferences in JSON with key `user_preferences` and the values. The query: 'My name is Omar Khaled, I'm 25 and I work as GenAI Engineer'. Add the final JSON between <answer></answer>",
+    "variants": [],
+    "match_type": "json",
+    "expected_json": {"user_preferences": {"name": "Omar Khaled", "age": "25", "work": "GenAI Engineer"}}
+  }
+]
