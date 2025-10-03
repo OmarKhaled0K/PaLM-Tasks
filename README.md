@@ -12,10 +12,11 @@ I've created this list of brainstorming notes to type any idea in my mind, Maybe
     - Include `perturbation test` like distractor, context change.
     - Create Python script to run the prompts, capture the completion, and give score for each 
 
-
 - For Synthetic cases, The generation rules:
     1. SYN-01 (math): deterministic numbers, no ambiguity. (no paraphrase needed)
-    2. 
+    2. SYN-02 (capital invariance): generate variance for factual question
+    3. SYN-03 (yes/no): Generate variance of binary question
+    4. SYN-04 (perturbation): create distractor paragraphs (2–5 sentences of neutral content) and prefix them to canonical prompt
 - Draft:
     - Maybe you should enclude the GTA idea in your prompt template as a bonus 
     - Prompt cases : 
@@ -24,11 +25,30 @@ I've created this list of brainstorming notes to type any idea in my mind, Maybe
             1. Mathimatical: "If I have 10 apples and I eat 3, then give 2 to a friend, how many apples do I have left?", The answer must be "5"
             2. Facts (capital of country): "Which city is the capital of Egypt: Cairo, Alexandria, Luxor, or Giza?", The answer must be "Cairo" 
             3. Yes/No Consistency: "Is water dry?"
-            4. Facts: "Reverse the word 'DontEverRverseMe'" Then answer must be 'eMesrevRrevEtnoD' ( I know that reverse missing 'e')
-            5. Facts: "Which is heavier: an elephant or a mouse?" The answer must be "Elephant"
+            4. Facts: "Which is heavier: an elephant or a mouse?" The answer must be "Elephant"
         - Real-world:
-            6. SQL: "Table: Employees (id INT, name TEXT, department TEXT, salary INT). Write an SQL query to find the highest salary in each department.\n Don't return any additional text, only the query", The answer must be executable SQL query return right answer
-            7. Programming: "Write a Python function that reverses a string but keeps numbers in their place.", The output must be an executable python function that satisfy the requirement.\n Don't return any additional text, only the function . 
-            8. Reasoning (small): "A bat and a ball cost $1.10 in total. The bat costs $1 more than the ball. How much does the ball cost?", The answer must be "0.05$"
-            9. Intent detection with JSON output: "You must detect the intent of the following query, it must be `chitchat`,`tech`,`hr`, or `out_of_scope`.\nReturn the output in JSON with field `intent` and the intent.\nThe query: 'Hello, How are you?'\n Answer : ```json". The answer must be {"intent": "chitchat"}
-            10. user preferences extract: "For the following query, extract any user preferences in JSON with key `user_preferences` and value list of each preference name and its value \n The query :'My name is Omar Khaled, I'm 25 and I work as GenAI Engineer'\n The answer: ```json" The response should be {"user_preferences": ["name":"Omar Khaled", "age": "25","work":"GenAI Engineer"]}
+            5. SQL: "Table: Employees (id INT, name TEXT, department TEXT, salary INT). Write an SQL query to find the highest salary in each department.\n Don't return any additional text, only the query", The answer must be executable SQL query return right answer
+            
+            6. Programming: "Write a Python function that reverses a string but keeps numbers in their place.", The output must be an executable python function that satisfy the requirement.\n Don't return any additional text, only the function . 
+            
+            7. Reasoning (small): "A bat and a ball cost $1.10 in total. The bat costs $1 more than the ball. How much does the ball cost?", The answer must be "0.05$"
+            
+            8. Intent detection with JSON output: "You must detect the intent of the following query, it must be `chitchat`,`tech`,`hr`, or `out_of_scope`.\nReturn the output in JSON with field `intent` and the intent.\nThe query: 'Hello, How are you?'\n Answer : ```json". The answer must be {"intent": "chitchat"}
+            
+            9. user preferences extract: "For the following query, extract any user preferences in JSON with key `user_preferences` and value list of each preference name and its value \n The query :'My name is Omar Khaled, I'm 25 and I work as GenAI Engineer'\n The answer: ```json" The response should be {"user_preferences": {"name":"Omar Khaled", "age": "25","work":"GenAI Engineer"}}
+    
+    - I used Claude sonnet 3.5 to review my code (NOT TYPE IT), also I used autocompletion when I typed the docstring
+    - I used OpenAI GPT 5 to discuss about the task to be sure that I fully understand it 
+
+- **Shipment plan**:
+    1. [DONE] Synthetic test set
+    2. [DONE] Real-world test set
+    3. [DONE] Invariance/perturbation sets
+    4. [DONE] Eval class (exact, sql, and json)
+    5. [DONE] Runnable script to run the cases and give scores
+    6. [NOT-YET] Add more test data with different types like semantic, code, reasoning, .etc.
+    7. [NOT-YET] Add different eval class like semantic, codes, more reasoning, .etc.
+    8. [NOT-YET] Use different metrics to check model understanding and relavence of generated answer ( maybe the generated answer is not exact as expected but close to it)
+    9. [NOT-YET] Monitor the latency with better way not just time, I think I used `instrumentator` of `FastAPI` once to let me understand the details of time for each method.
+     
+
