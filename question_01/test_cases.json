@@ -14,10 +14,10 @@
     "title": "Capital - invariance",
     "prompt": "Which city is the capital of Egypt: Cairo, Alexandria, Luxor, or Giza? Add the final answer between <answer></answer>",
     "variants": [
-      "What is Egypt's capital?",
-      "What's the captial of Egpyt?",
-      "Quick Q: what's the capital of Egypt?",
-      "Out of the following cities Cairo, Alexandria, Luxor, and Giza, which one is the capital of Egypt?"
+      "What is Egypt's capital? Add the final answer between <answer></answer>",
+      "What's the captial of Egpyt? Add the final answer between <answer></answer>",
+      "Quick Q: what's the capital of Egypt? Add the final answer between <answer></answer>",
+      "Out of the following cities Cairo, Alexandria, Luxor, and Giza, which one is the capital of Egypt? Add the final answer between <answer></answer>"
     ],
     "match_type": "exact",
     "expected": "Cairo",
@@ -29,9 +29,9 @@
     "title": "Yes/No consistency",
     "prompt": "Is water dry? Add the final answer between <answer></answer>",
     "variants": [
-      "Water is dry, right?",
-      "Is water considered dry?",
-      "People say water is dry, is that true?"
+      "Water is dry, right? Add the final answer between <answer></answer>",
+      "Is water considered dry? Add the final answer between <answer></answer>",
+      "People say water is dry, is that true? Add the final answer between <answer></answer>"
     ],
     "match_type": "exact",
     "expected": "No"
@@ -51,7 +51,7 @@
     "title": "Perturbation (distractor) - weight",
     "prompt": "Which is heavier: an elephant or a mouse? Add the final answer between <answer></answer>",
     "variants": [
-      "Birds are small warm-blooded animals that can fly. They live in flocks and migrate. Which is heavier: an elephant or a mouse?"
+      "Birds are small warm-blooded animals that can fly. They live in flocks and migrate. Which is heavier: an elephant or a mouse? Add the final answer between <answer></answer>"
     ],
     "match_type": "exact",
     "expected": "Elephant",
@@ -119,6 +119,6 @@
     "prompt": "For the following query, extract any user preferences in JSON with key `user_preferences` and the values. The query: 'My name is Omar Khaled, I'm 25 and I work as GenAI Engineer'. Add the final JSON between <answer></answer>",
     "variants": [],
     "match_type": "json",
-    "expected_json": {"user_preferences": {"name": "Omar Khaled", "age": "25", "work": "GenAI Engineer"}}
+    "expected_json": {"user_preferences": {"name": "Omar Khaled", "age": 25, "occupation": "GenAI Engineer"}}
   }
 ]
