@@ -50,5 +50,11 @@ I've created this list of brainstorming notes to type any idea in my mind, Maybe
     7. [NOT-YET] Add different eval class like semantic, codes, more reasoning, .etc.
     8. [NOT-YET] Use different metrics to check model understanding and relavence of generated answer ( maybe the generated answer is not exact as expected but close to it)
     9. [NOT-YET] Monitor the latency with better way not just time, I think I used `instrumentator` of `FastAPI` once to let me understand the details of time for each method.
+
+- To run question 1 :
+    1. add `OPENAI_API_KEY` in .env file
+    2. `cd question_01`
+    3. run `python run script.y`
+    4. Results are saved in `results.json` 
      
 
