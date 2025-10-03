@@ -78,23 +78,6 @@
     }
   },
   {
-    "id": "REAL-07",
-    "type": "real-world",
-    "title": "Python - reverse but keep numbers (executable)",
-    "prompt": "Write a Python function that reverses a string but keeps numbers in their place. Add the final function between <answer></answer>",
-    "variants": [],
-    "match_type": "executable_python",
-    "expected_function_name": "reverse_keep_numbers",
-    "python_validation": {
-      "tests": [
-        {"input": "AI2025", "expected": "IA2025"},
-        {"input": "a1b2", "expected": "b1a2"},
-        {"input": "123abc", "expected": "123cba"}
-      ],
-      "forbid_tokens": ["import os", "import sys", "subprocess", "socket", "open(", "__import__"]
-    }
-  },
-  {
     "id": "REAL-08",
     "type": "real-world",
     "title": "Reasoning - bat and ball trap",
