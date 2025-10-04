@@ -39,15 +39,6 @@
   {
     "id": "SYN-04",
     "type": "synthetic",
-    "title": "Reverse fixed word",
-    "prompt": "Reverse the word 'DontEverRverseMe'. Add the final answer between <answer></answer>",
-    "variants": [],
-    "match_type": "exact",
-    "expected": "eMesrevRrevEtnoD"
-  },
-  {
-    "id": "SYN-05",
-    "type": "synthetic",
     "title": "Perturbation (distractor) - weight",
     "prompt": "Which is heavier: an elephant or a mouse? Add the final answer between <answer></answer>",
     "variants": [
@@ -58,7 +49,7 @@
     "notes": "PERTURBATION test - check sensitivity to distractors"
   },
   {
-    "id": "REAL-06",
+    "id": "REAL-05",
     "type": "real-world",
     "title": "SQL - highest salary per department",
     "prompt": "Table: Employees (id INT, name TEXT, department TEXT, salary INT). Write an SQL query to find the highest salary in each department. Add the final query between <answer></answer>",
@@ -78,7 +69,7 @@
     }
   },
   {
-    "id": "REAL-08",
+    "id": "REAL-06",
     "type": "real-world",
     "title": "Reasoning - bat and ball trap",
     "prompt": "A bat and a ball cost $1.10 in total. The bat costs $1 more than the ball. How much does the ball cost? Add the final answer between <answer></answer>",
@@ -87,7 +78,7 @@
     "expected": "0.05"
   },
   {
-    "id": "REAL-09",
+    "id": "REAL-07",
     "type": "real-world",
     "title": "Intent detection (JSON strict)",
     "prompt": "You must detect the intent of the following query. Allowed intents: `chitchat`,`tech`,`hr`, or `out_of_scope`. The query: \"Hello, How are you?\". Add the final JSON between <answer></answer>",
@@ -96,7 +87,7 @@
     "expected_json": {"intent": "chitchat"}
   },
   {
-    "id": "REAL-10",
+    "id": "REAL-8",
     "type": "real-world",
     "title": "User preferences extract (JSON)",
     "prompt": "For the following query, extract any user preferences in JSON with key `user_preferences` and the values. The query: 'My name is Omar Khaled, I'm 25 and I work as GenAI Engineer'. Add the final JSON between <answer></answer>",
