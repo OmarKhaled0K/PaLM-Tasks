@@ -14,7 +14,7 @@
     "title": "Capital - invariance",
     "prompt": "Which city is the capital of Egypt: Cairo, Alexandria, Luxor, or Giza? Add the final answer between <answer></answer>",
     "variants": [
-      "What is Egypt's capital? Add the final answer between <answer></answer>",
+      "I love France, I enjoyed my journey to Canada. What is Egypt's capital? Add the final answer between <answer></answer>",
       "What's the captial of Egpyt? Add the final answer between <answer></answer>",
       "Quick Q: what's the capital of Egypt? Add the final answer between <answer></answer>",
       "Out of the following cities Cairo, Alexandria, Luxor, and Giza, which one is the capital of Egypt? Add the final answer between <answer></answer>"
