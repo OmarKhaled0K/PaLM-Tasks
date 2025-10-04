@@ -5,6 +5,7 @@ from data_retriever.retriever import SimpleRetriever
 from database.simple_data import SIMPLE_SNIPPETS
 from prometheus_fastapi_instrumentator import Instrumentator
 from middlewares.profiler import profile_http_middleware
+from middlewares.error_tracker import error_tracking_middleware
 
 
 instrumentator = Instrumentator()
@@ -16,6 +17,7 @@ app = FastAPI(title="Retrieval Service",version="1.0.0",
     swagger_ui_parameters={"docExpansion": "none"},
 )
 app.middleware("http")(profile_http_middleware)
+app.middleware("http")(error_tracking_middleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
