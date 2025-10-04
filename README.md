@@ -1,6 +1,28 @@
 # PaLM-Tasks
 This repo is for submitting the tasks requested by PaLM Team for position AI Engineer
 
+## To test the project
+- Question 1:
+    - `git clone https://github.com/OmarKhaled0K/PaLM-Tasks.git`
+    - `cd PaLM-Tasks`
+    - `pip install -r requirements.txt`
+    - `cd question_1`
+    - `python run script.py`
+
+    You will see results in terminal as well as `results.json` file
+- Question 2:
+    - `git clone https://github.com/OmarKhaled0K/PaLM-Tasks.git`
+    - `cd PaLM-Tasks`
+    - `pip install -r requirements.txt`
+    - `cd question_2`
+    - `uvicorn app:app --reload`
+
+    Then, test the endpoints using APIdog, Postman, or even swagger (recommended)
+    
+    To use swagger, Open `http://127.0.0.1:8000/docs#/` 
+
+
+
 ## Brainstorming notes
 I've created this list of brainstorming notes to type any idea in my mind, Maybe I would change it / remove it at all. The point here is I just want to let you understand the way I think (so it give you the freedom of accepting my way of thinking/try to change it to fit the position/reject it at all :) ) 
 
@@ -57,4 +79,15 @@ I've created this list of brainstorming notes to type any idea in my mind, Maybe
     3. run `python run script.y`
     4. Results are saved in `results.json` 
      
+
+### Question 2
+- Task brainstorming:
+    - I've to build simple retriever, I will build both bm25 and vector retriever and maybe I will include the hybrid
+    - Build text corpus to be the data that the retriever retrieve from
+    - Build `/answer` endpoint to retrieve the top chunk and concider it the response (as we don't want to use LLM now)
+    - Retrieve also top_k of chunks
+    - As a bonus, I will build bm25, vector, hybrid endpoints
+    - For two index config, I think I will make it bm25 vs vector or hybrid as well as cosine vs dot , as we don't use LLMs so top-k is not necessary
+    - I asked GPT to create a denylist for me, I also took sometime to master prometheus more as I used it just once.
+
 

@@ -7,8 +7,6 @@ from prometheus_fastapi_instrumentator import Instrumentator
 from middlewares.profiler import profile_http_middleware
 
 
-
-
 instrumentator = Instrumentator()
 simple_retriever = SimpleRetriever(
     snippets=SIMPLE_SNIPPETS
